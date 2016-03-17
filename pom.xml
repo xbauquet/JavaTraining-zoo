@@ -258,7 +258,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>avl-wildfly-conf</id>
+			<id>avl-wildfly-port-conf</id>
 			<build>
 				<plugins>
 					<plugin>
