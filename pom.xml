@@ -209,12 +209,28 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
+			
+			<!-- from Maven to WildFly -->
 			<!-- The WildFly plugin deploys your war to a local WildFly container -->
 			<!-- To use, run: mvn package wildfly:deploy -->
 			<plugin>
 				<groupId>org.wildfly.plugins</groupId>
 				<artifactId>wildfly-maven-plugin</artifactId>
 				<version>${version.wildfly.maven.plugin}</version>
+			</plugin>
+			
+			<!-- Cobertura -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<formats>
+						<!-- uncomment the following for HTML report, but we will be using Jenkins -->
+						<!-- <format>html</format> -->
+						<format>xml</format>
+					</formats>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -241,7 +257,21 @@
 				</plugins>
 			</build>
 		</profile>
-
+		<profile>
+			<id>avl-wildfly-conf</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.wildfly.plugins</groupId>
+						<artifactId>wildfly-maven-plugin</artifactId>
+						<version>${version.wildfly.maven.plugin}</version>
+						<configuration>
+                  			<port>10090</port>
+                		</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 		<profile>
 
 			<!-- An optional Arquillian testing profile that executes tests in your 
@@ -295,6 +325,5 @@
 				</plugins>
 			</build>
 		</profile>
-
 	</profiles>
 </project>
