@@ -1,21 +1,22 @@
 package zoo;
 
 import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
 
 @ManagedBean
 public class LoginMC {
-	private static final String GOOD_LOGIN = "toto";
-	private static final String GOOD_PASS = "toto";
-
 	private String login;
 	private String pass;
 
 	public LoginMC() {
 	}
 
+	@Inject
+	UserAuthentificationServiceInterface userAS;
+	
 	public String check() {
-
-		if (login.equals(GOOD_LOGIN) && pass.equals(GOOD_PASS)) {
+		
+		if (userAS.isValid(login, pass)) {
 			return Boolean.TRUE.toString();
 		} else {
 			return Boolean.FALSE.toString();
