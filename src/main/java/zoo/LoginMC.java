@@ -15,7 +15,6 @@ public class LoginMC {
 	UserAuthentificationServiceInterface userAS;
 	
 	public String check() {
-		
 		if (userAS.isValid(login, pass)) {
 			return Boolean.TRUE.toString();
 		} else {
