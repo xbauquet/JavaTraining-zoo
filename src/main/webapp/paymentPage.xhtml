@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Payment</title>
+</h:head>
+
+<h:body>
+	<h:form id="form">
+		<h:panelGrid columns="1">
+			<h2>Payment</h2>
+			<h:outputText value="#{paymentMC.order}" />
+			<h:outputText value="#{paymentMC.price}" />
+			
+			<h:graphicImage value="resources/img/cartes.jpg" />
+
+			<h:inputText value="#{paymentMC.cardNumber}" required="true"
+				id="cardNumber" />
+			<h:inputText value="#{paymentMC.securityNumber}" required="true"
+				id="securityNumber" />
+			<h:inputText value="#{paymentMC.expiryDate}" required="true"
+				id="expiryDate" />
+
+			<h:commandButton value="Ok" action="#{paymentMC.payment}" />
+		</h:panelGrid>
+	</h:form>
+
+</h:body>
+</html>

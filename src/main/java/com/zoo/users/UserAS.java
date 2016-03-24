@@ -1,4 +1,4 @@
-package zoo;
+package com.zoo.users;
 
 import javax.ejb.Stateless;
 

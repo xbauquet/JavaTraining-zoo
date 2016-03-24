@@ -5,35 +5,23 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<h:panelGrid columns="3">
-		<p:outputLabel value="Adult" for="adult" />
-		<p:outputLabel value="26€" for="adult" />
-		<p:selectOneMenu id="adult" value="">
-            <f:selectItem itemLabel="0" itemValue="0" />
-            <f:selectItems value="#{autoCompleteView.list}" />
-        </p:selectOneMenu>
-        
-        <p:outputLabel value="Child" for="child" />
-		<p:outputLabel value="7€" for="child" />
-		<p:selectOneMenu id="child" value="">
-            <f:selectItem itemLabel="0" itemValue="0" />
-            <f:selectItems value="#{autoCompleteView.list}" />
-        </p:selectOneMenu>
-              
-        <p:outputLabel value="Reduced" for="reduced" />
-		<p:outputLabel value="13€" for="reduced" />
-		<p:selectOneMenu id="reduced" value="">
-            <f:selectItem itemLabel="0" itemValue="0" />
-            <f:selectItems value="#{autoCompleteView.list}" />
-        </p:selectOneMenu>
-        
-        <p:outputLabel value="Group" for="group" />
-		<p:outputLabel value="20€" for="group" />
-		<p:selectOneMenu id="group" value="">
-            <f:selectItem itemLabel="0" itemValue="0" />
-            <f:selectItems value="#{autoCompleteView.list}" />
-        </p:selectOneMenu>
-        
-        <p:commandButton value="Submit" action="#{loginMC.check}" icon="ui-icon-check" />
-        
+		<h:outputText value="Adult" />
+		<h:outputText value="26€" />
+		<h:inputText value="#{ticketsMC.adult}" required="true" id="adult" />
+
+		<h:outputText value="Child" />
+		<h:outputText value="7€" />
+		<h:inputText value="#{ticketsMC.child}" required="true" id="child" />
+
+		<h:outputText value="Reduced" />
+		<h:outputText value="13€" />
+		<h:inputText value="#{ticketsMC.reduced}" required="true" id="reduced" />
+
+		<h:outputText value="Group" />
+		<h:outputText value="20€" />
+		<h:inputText value="#{ticketsMC.group}" required="true" id="group" />
+
+		<h:commandButton value="Ok"
+			action="#{ticketsMC.payment}" />
 	</h:panelGrid>
 </h:form>

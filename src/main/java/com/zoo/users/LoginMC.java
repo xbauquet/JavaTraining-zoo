@@ -1,4 +1,4 @@
-package zoo;
+package com.zoo.users;
 
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
