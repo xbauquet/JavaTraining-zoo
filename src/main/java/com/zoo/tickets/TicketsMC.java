@@ -12,15 +12,15 @@ public class TicketsMC {
 	private int group;
 
 	@Inject
-	Booking booking;
+	BookingService bookingService;
+	
+	@Inject
+	BookingHolder bookingHolder;
 
 	// If at least one ticket is ordered return true to lead to the payment page
 	public String payment() {
-		booking.setNbAdults(adult);
-		booking.setNbChildren(child);
-		booking.setNbReduced(reduced);
-		booking.setNbGroups(group);
-		booking.calculatePrice();
+		
+		bookingHolder.setBooking(bookingService.createBooking(adult, child));
 		
 		if (adult > 0 || child > 0 || reduced > 0 || group > 0) {
 			return Boolean.TRUE.toString();
@@ -31,6 +31,9 @@ public class TicketsMC {
 
 	// Getters / Setters
 	public int getAdult() {
+		if (bookingHolder.getBooking() != null) {
+			return bookingHolder.getBooking().getNbAdults();
+		}
 		return adult;
 	}
 

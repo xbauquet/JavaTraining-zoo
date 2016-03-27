@@ -13,12 +13,12 @@ public class PaymentMC {
 	private String expiryDate;
 
 	@Inject
-	Booking booking;
+	BookingHolder bookingHolder;
 
 	@PostConstruct
 	public void init() {
-		order = booking.orderToString();
-		price = String.valueOf(booking.getPrice());
+		order = bookingHolder.getBooking().orderToString();
+		price = String.valueOf(bookingHolder.getBooking().getPrice());
 	}
 
 	public String payment() {
