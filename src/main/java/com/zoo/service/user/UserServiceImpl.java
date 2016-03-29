@@ -1,5 +1,7 @@
 package com.zoo.service.user;
 
+import java.util.Collection;
+
 import javax.inject.Inject;
 
 import com.zoo.data.user.UserDao;
@@ -47,14 +49,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void findUserById(String email) {
-		userDao.findById(email);
+	public User findUserById(String email) {
+		return userDao.findById(email);
 
 	}
 
 	@Override
-	public void findAllUser() {
-		userDao.findAll();
+	public Collection<User> findAllUser() {
+		return userDao.findAll();
 
 	}
 

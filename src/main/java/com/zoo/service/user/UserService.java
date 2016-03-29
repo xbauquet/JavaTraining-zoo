@@ -1,5 +1,7 @@
 package com.zoo.service.user;
 
+import java.util.Collection;
+
 import com.zoo.model.User;
 
 public interface UserService {
@@ -9,9 +11,9 @@ public interface UserService {
 
 	void removeUser(User user);
 
-	void findUserById(String email);
+	User findUserById(String email);
 
-	void findAllUser();
+	Collection<User> findAllUser();
 
 	User createAdmin(String email, String firstName, String lastName, String pass);
 }

@@ -1,5 +1,7 @@
 package com.zoo.service.booking;
 
+import java.util.Collection;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import com.zoo.data.booking.BookingDao;
@@ -40,13 +42,13 @@ public class BookingServiceImpl implements BookingService {
 	}
 
 	@Override
-	public void findBookingById(int id) {
-		bookingDao.findById(id);
+	public Booking findBookingById(int id) {
+		return bookingDao.findById(id);
 	}
 
 	@Override
-	public void findAllBooking() {
-		bookingDao.findAll();
+	public Collection<Booking> findAllBooking() {
+		return bookingDao.findAll();
 	}
 
 }
