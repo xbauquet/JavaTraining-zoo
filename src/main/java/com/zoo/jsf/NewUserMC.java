@@ -1,6 +1,9 @@
 package com.zoo.jsf;
 
 import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
+import com.zoo.service.user.UserHolder;
+import com.zoo.service.user.UserService;
 
 @ManagedBean
 public class NewUserMC {
@@ -10,8 +13,15 @@ public class NewUserMC {
 	private String pass;
 	private String repass;
 
+	@Inject
+	UserService userService;
+
+	@Inject
+	UserHolder userHolder;
+
 	public String checkUser() {
 		if (pass.equals(repass)) {
+			userHolder.setUser(userService.createUser(email, firstName, lastName, pass));
 			return Boolean.TRUE.toString();
 		} else {
 			return Boolean.FALSE.toString();
