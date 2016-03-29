@@ -14,7 +14,11 @@ public abstract class JpaDao<K, E> implements Dao<K, E> {
 	protected EntityManager entityManager;
 
 	public JpaDao() {
-		ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
+		Class<?> genericSuperclass2 = getClass();
+		while(!ParameterizedType.class.isAssignableFrom(genericSuperclass2.getGenericSuperclass().getClass())) {
+			genericSuperclass2 = genericSuperclass2.getSuperclass();
+		}
+		ParameterizedType genericSuperclass = (ParameterizedType) genericSuperclass2.getGenericSuperclass();
 		this.entityClass = (Class<E>) genericSuperclass.getActualTypeArguments()[1];
 	}
 
