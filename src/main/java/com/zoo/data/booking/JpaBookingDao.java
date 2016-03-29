@@ -1,6 +1,7 @@
-package com.zoo.dao;
+package com.zoo.data.booking;
 
-import com.zoo.tickets.Booking;
+import com.zoo.data.JpaDao;
+import com.zoo.model.Booking;
 
 public class JpaBookingDao extends JpaDao<Integer, Booking> implements BookingDao {
 

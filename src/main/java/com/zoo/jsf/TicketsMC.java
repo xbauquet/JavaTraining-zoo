@@ -1,7 +1,10 @@
-package com.zoo.tickets;
+package com.zoo.jsf;
 
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+
+import com.zoo.service.booking.BookingHolder;
+import com.zoo.service.booking.BookingService;
 
 @ManagedBean
 public class TicketsMC {

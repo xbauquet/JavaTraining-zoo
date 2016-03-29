@@ -1,7 +1,9 @@
-package com.zoo.users;
+package com.zoo.jsf;
 
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+
+import com.zoo.service.user.UserAuthentificationServiceInterface;
 
 @ManagedBean
 public class LoginMC {

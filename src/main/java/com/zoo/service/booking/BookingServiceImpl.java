@@ -1,9 +1,10 @@
-package com.zoo.tickets;
+package com.zoo.service.booking;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import com.zoo.dao.BookingDao;
+import com.zoo.data.booking.BookingDao;
+import com.zoo.model.Booking;
 
 @Stateless
 public class BookingServiceImpl implements BookingService {

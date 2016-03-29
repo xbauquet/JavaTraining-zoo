@@ -1,9 +1,11 @@
-package com.zoo.tickets;
+package com.zoo.service.booking;
 
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+
+import com.zoo.model.Booking;
 
 @ManagedBean
 @SessionScoped

@@ -1,7 +1,7 @@
-package com.zoo.tickets;
+package com.zoo.model;
 
 import java.util.Date;
-import javax.annotation.PostConstruct;
+
 import javax.ejb.Stateful;
 import javax.enterprise.context.SessionScoped;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ public class Booking {
 
 	private static final String UNKNOW_EMAIL = "unknow@unknow.xxx";
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
-	
+
 	@Id
 	@GeneratedValue
 	private int id;

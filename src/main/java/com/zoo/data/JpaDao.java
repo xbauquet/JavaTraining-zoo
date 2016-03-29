@@ -1,4 +1,4 @@
-package com.zoo.dao;
+package com.zoo.data;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;

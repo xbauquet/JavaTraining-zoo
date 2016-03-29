@@ -1,4 +1,6 @@
-package com.zoo.tickets;
+package com.zoo.service.booking;
+
+import com.zoo.model.Booking;
 
 public interface BookingService {
 	Booking createBooking(int nbAdults, int nbChildren, int nbReduced, int nbGroup);
