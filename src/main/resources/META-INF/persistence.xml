@@ -20,16 +20,12 @@
 		<!-- The datasource is deployed as WEB-INF/zoo-ds.xml, you can find it 
 			in the source at src/main/webapp/WEB-INF/zoo-ds.xml -->
 		<jta-data-source>java:jboss/datasources/zooDS</jta-data-source>
-		<class>com.zoo.model.Booking</class>
+		
 		<properties>
 			<!-- Properties for Hibernate -->
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 			<property name="hibernate.show_sql" value="false" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/zoo"/>
-			<property name="javax.persistence.jdbc.user" value="postgres"/>
-			<property name="javax.persistence.jdbc.password" value="1234"/>
-			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />			
 		</properties>
 	</persistence-unit>
 </persistence>
