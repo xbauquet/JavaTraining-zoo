@@ -2,15 +2,18 @@ package com.zoo.service.booking;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-
 import com.zoo.data.booking.BookingDao;
 import com.zoo.model.Booking;
+import com.zoo.service.user.UserHolder;
 
 @Stateless
 public class BookingServiceImpl implements BookingService {
 
 	@Inject
 	private BookingDao bookingDao;
+
+	@Inject
+	private UserHolder userHolder;
 
 	@Override
 	public Booking createBooking(int nbAdults, int nbChildren, int nbReduced, int nbGroup) {
@@ -19,6 +22,9 @@ public class BookingServiceImpl implements BookingService {
 		booking.setNbChildren(nbChildren);
 		booking.setNbReduced(nbReduced);
 		booking.setNbGroups(nbGroup);
+		if (userHolder.getUser() != null) {
+			booking.setEmail(userHolder.getUser().getEmail());
+		}
 		booking.calculatePrice();
 		return booking;
 	}
