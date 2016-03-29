@@ -16,4 +16,6 @@ public interface UserService {
 	Collection<User> findAllUser();
 
 	User createAdmin(String email, String firstName, String lastName, String pass);
+	
+	void disconnectUser();
 }

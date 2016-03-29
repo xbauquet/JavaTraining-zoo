@@ -15,6 +15,9 @@ public class UserServiceImpl implements UserService {
 	@Inject
 	private UserDao userDao;
 
+	@Inject
+	private UserHolder userHolder;
+
 	@Override
 	public User createUser(String email, String firstName, String lastName, String pass) {
 		User user = new User();
@@ -35,6 +38,11 @@ public class UserServiceImpl implements UserService {
 		user.setPass(pass);
 		user.setAuthority(ADMIN_AUTHORITY);
 		return user;
+	}
+
+	@Override
+	public void disconnectUser() {
+		userHolder.setUser(null);
 	}
 
 	@Override
