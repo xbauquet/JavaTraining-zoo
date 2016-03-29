@@ -1,17 +1,23 @@
 package com.zoo.tickets;
 
 import java.util.Date;
-
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
 import javax.enterprise.context.SessionScoped;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Stateful
 @SessionScoped
+@Entity
 public class Booking {
 
+	private static final String UNKNOW_EMAIL = "unknow@unknow.xxx";
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
-
+	
+	@Id
+	@GeneratedValue
 	private int id;
 	private int nbAdults;
 	private int nbChildren;
@@ -19,10 +25,11 @@ public class Booking {
 	private int nbGroups;
 	private int price;
 	private String date;
+	private String email;
 
-	@PostConstruct
-	public void today() {
+	public Booking() {
 		this.date = new Date().toString();
+		this.email = UNKNOW_EMAIL;
 	}
 
 	public String orderToString() {
@@ -47,6 +54,14 @@ public class Booking {
 	}
 
 	// Getters / Setters
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public int getPrice() {
 		return price;
 	}

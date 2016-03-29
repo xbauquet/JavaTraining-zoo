@@ -4,6 +4,8 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
+import com.zoo.dao.BookingDao;
+
 @ManagedBean
 public class PaymentMC {
 	private String order;
@@ -13,8 +15,11 @@ public class PaymentMC {
 	private String expiryDate;
 
 	@Inject
-	BookingHolder bookingHolder;
+	private BookingHolder bookingHolder;
 
+	@Inject
+	BookingService bookingServie;
+	
 	@PostConstruct
 	public void init() {
 		order = bookingHolder.getBooking().orderToString();
@@ -22,6 +27,7 @@ public class PaymentMC {
 	}
 
 	public String payment() {
+		bookingServie.saveBooking(bookingHolder.getBooking());
 		return Boolean.TRUE.toString();
 	}
 

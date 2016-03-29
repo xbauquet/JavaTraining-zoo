@@ -8,9 +8,6 @@ public class LoginMC {
 	private String login;
 	private String pass;
 
-	public LoginMC() {
-	}
-
 	@Inject
 	UserAuthentificationServiceInterface userAS;
 	

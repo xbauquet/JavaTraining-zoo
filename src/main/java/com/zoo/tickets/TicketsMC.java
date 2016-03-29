@@ -5,7 +5,7 @@ import javax.inject.Inject;
 
 @ManagedBean
 public class TicketsMC {
-	
+
 	private int adult;
 	private int child;
 	private int reduced;
@@ -13,16 +13,15 @@ public class TicketsMC {
 
 	@Inject
 	BookingService bookingService;
-	
+
 	@Inject
 	BookingHolder bookingHolder;
 
 	// If at least one ticket is ordered return true to lead to the payment page
 	public String payment() {
-		
-		bookingHolder.setBooking(bookingService.createBooking(adult, child));
-		
+
 		if (adult > 0 || child > 0 || reduced > 0 || group > 0) {
+			bookingHolder.setBooking(bookingService.createBooking(adult, child, reduced, group));
 			return Boolean.TRUE.toString();
 		} else {
 			return Boolean.FALSE.toString();

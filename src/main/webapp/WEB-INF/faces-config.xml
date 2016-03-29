@@ -48,6 +48,15 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>paymentPage.xhtml</display-name>
+		<from-view-id>/paymentPage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>true</from-outcome>
+			<to-view-id>/welcome.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
 
 	<!-- Give the path to the I18n files -->
 	<application>
