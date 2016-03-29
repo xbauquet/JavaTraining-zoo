@@ -3,7 +3,6 @@ package com.zoo.data;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
 import java.util.List;
-
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
