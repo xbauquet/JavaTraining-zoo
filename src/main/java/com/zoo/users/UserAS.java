@@ -3,7 +3,7 @@ package com.zoo.users;
 import javax.ejb.Stateless;
 
 @Stateless
-public class UserAS implements UserAuthentificationServiceInterface{
+public class UserAS implements UserAuthentificationServiceInterface {
 
 	@Override
 	public boolean isValid(String login, String pass) {

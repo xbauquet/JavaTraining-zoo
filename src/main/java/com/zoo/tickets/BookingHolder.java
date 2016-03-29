@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 @SessionScoped
-public class BookingHolder implements Serializable{
+public class BookingHolder implements Serializable {
 	private Booking booking;
 
 	public Booking getBooking() {
@@ -17,6 +17,5 @@ public class BookingHolder implements Serializable{
 	public void setBooking(Booking booking) {
 		this.booking = booking;
 	}
-	
-	
+
 }
