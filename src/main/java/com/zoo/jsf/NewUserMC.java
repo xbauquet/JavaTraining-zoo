@@ -18,15 +18,12 @@ public class NewUserMC {
 	@Inject
 	UserService userService;
 
-	@Inject
-	UserHolder userHolder;
-
 	public String checkUser() {
 		if (pass.equals(repass)) {
 			User user = userService.createUser(email, firstName, lastName, pass);
-			userHolder.setUser(user);
+			userService.setCurrentUser(user);
 			userService.saveUser(user);
-			return Boolean.TRUE.toString();
+			return user.getAuthority();
 		} else {
 			return Boolean.FALSE.toString();
 		}
