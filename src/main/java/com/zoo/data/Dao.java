@@ -1,6 +1,6 @@
 package com.zoo.data;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * K is type of the Key (usually Long or String) E is the type of entity managed
@@ -13,5 +13,5 @@ public interface Dao<K, E> {
 
 	E findById(K id);
 
-	Collection<E> findAll();
+	List<E> findAll();
 }
