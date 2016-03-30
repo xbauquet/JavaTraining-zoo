@@ -43,11 +43,6 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void disconnectUser() {
-		userHolder.setUser(null);
-	}
-
-	@Override
 	public void saveUser(User user) {
 		userDao.persist(user);
 	}
@@ -68,6 +63,16 @@ public class UserServiceImpl implements UserService {
 	public Collection<User> findAllUser() {
 		return userDao.findAll();
 
+	}
+
+	@Override
+	public void disconnectCurrentUser() {
+		userHolder.setUser(null);
+	}
+
+	@Override
+	public User getCurrentUser() {
+		return userHolder.getUser();	
 	}
 
 }

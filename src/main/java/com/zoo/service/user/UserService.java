@@ -17,5 +17,8 @@ public interface UserService {
 
 	User createAdmin(String email, String firstName, String lastName, String pass);
 	
-	void disconnectUser();
+	void disconnectCurrentUser();
+
+	User getCurrentUser();
+	
 }
