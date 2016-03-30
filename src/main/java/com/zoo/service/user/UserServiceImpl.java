@@ -2,11 +2,13 @@ package com.zoo.service.user;
 
 import java.util.Collection;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.zoo.data.user.UserDao;
 import com.zoo.model.User;
 
+@Stateless
 public class UserServiceImpl implements UserService {
 
 	private static final String ADMIN_AUTHORITY = "admin";

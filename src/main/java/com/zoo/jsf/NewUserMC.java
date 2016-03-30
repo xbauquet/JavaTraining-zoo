@@ -2,6 +2,8 @@ package com.zoo.jsf;
 
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+
+import com.zoo.model.User;
 import com.zoo.service.user.UserHolder;
 import com.zoo.service.user.UserService;
 
@@ -21,7 +23,9 @@ public class NewUserMC {
 
 	public String checkUser() {
 		if (pass.equals(repass)) {
-			userHolder.setUser(userService.createUser(email, firstName, lastName, pass));
+			User user = userService.createUser(email, firstName, lastName, pass);
+			userHolder.setUser(user);
+			userService.saveUser(user);
 			return Boolean.TRUE.toString();
 		} else {
 			return Boolean.FALSE.toString();
