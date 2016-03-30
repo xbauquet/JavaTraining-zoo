@@ -20,9 +20,8 @@ public class LoginMC {
 
 	public String check() {
 		User user = userService.findUserById(login);
-		if (user.isMyPassword(pass)) {
+		if (user != null && user.isMyPassword(pass)) {
 			userHolder.setUser(user);
-			userService.saveUser(user);
 			return Boolean.TRUE.toString();
 		} else {
 			return Boolean.FALSE.toString();
