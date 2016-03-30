@@ -4,7 +4,6 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 import com.zoo.model.User;
-import com.zoo.service.user.UserHolder;
 import com.zoo.service.user.UserService;
 
 @ManagedBean

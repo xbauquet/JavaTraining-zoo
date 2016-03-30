@@ -21,4 +21,6 @@ public interface UserService {
 
 	User getCurrentUser();
 	
+	void setCurrentUser(User user);
+	
 }

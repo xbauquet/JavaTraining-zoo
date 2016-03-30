@@ -4,7 +4,6 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 import com.zoo.model.User;
-import com.zoo.service.user.UserHolder;
 import com.zoo.service.user.UserService;
 
 @ManagedBean
@@ -15,14 +14,11 @@ public class LoginMC {
 	@Inject
 	UserService userService;
 
-	@Inject
-	UserHolder userHolder;
-
 	public String check() {
 		User user = userService.findUserById(login);
 		if (user != null && user.isMyPassword(pass)) {
-			userHolder.setUser(user);
-			return Boolean.TRUE.toString();
+			userService.setCurrentUser(user);
+			return userService.getCurrentUser().getAuthority();
 		} else {
 			return Boolean.FALSE.toString();
 		}

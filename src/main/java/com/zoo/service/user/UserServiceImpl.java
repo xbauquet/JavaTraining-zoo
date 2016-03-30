@@ -72,7 +72,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getCurrentUser() {
-		return userHolder.getUser();	
+		return userHolder.getUser();
+	}
+
+	@Override
+	public void setCurrentUser(User user) {
+		userHolder.setUser(user);
+
 	}
 
 }
