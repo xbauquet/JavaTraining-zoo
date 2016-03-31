@@ -1,4 +1,4 @@
-package com.zoo.jsf;
+package com.zoo.jsf.admin;
 
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
@@ -7,7 +7,7 @@ import com.zoo.model.User;
 import com.zoo.service.user.UserService;
 
 @ManagedBean
-public class NewUserMC {
+public class NewAdminMC {
 	private String email;
 	private String firstName;
 	private String lastName;
@@ -17,17 +17,6 @@ public class NewUserMC {
 	@Inject
 	UserService userService;
 
-	public String checkUser() {
-		if (pass.equals(repass)) {
-			User user = userService.createUser(email, firstName, lastName, pass);
-			userService.setCurrentUser(user);
-			userService.saveUser(user);
-			return user.getAuthority();
-		} else {
-			return Boolean.FALSE.toString();
-		}
-	}
-	
 	public String checkAdmin() {
 		if (pass.equals(repass)) {
 			User user = userService.createAdmin(email, firstName, lastName, pass);
