@@ -20,6 +20,7 @@ public class LifeCycleBean {
 
 	@PostConstruct
 	public void init() {
+		// ADD an admin to the data base
 		User admin = new User();
 		admin.setEmail(ADMIN_EMAIL);
 		admin.setFirstName(ADMIN);
@@ -27,6 +28,25 @@ public class LifeCycleBean {
 		admin.setPass(ADMIN);
 		admin.setAuthority(ADMIN);
 		em.persist(admin);
+
+		// ADD an user to the data base
+		User toto = new User();
+		toto.setEmail("toto@toto.com");
+		toto.setFirstName("toto");
+		toto.setLastName("toto");
+		toto.setPass("toto");
+		toto.setAuthority("user");
+		em.persist(toto);
+
+		// ADD an user to the data base
+		User tata = new User();
+		tata.setEmail("tata@tata.com");
+		tata.setFirstName("tata");
+		tata.setLastName("tata");
+		tata.setPass("tata");
+		tata.setAuthority("user");
+		em.persist(tata);
+
 	}
 
 }
