@@ -20,11 +20,11 @@ public class Booking {
 	private int nbReduced;
 	private int nbGroups;
 	private int price;
-	private String date;
+	private Date date;
 	private String email;
 
 	public Booking() {
-		this.date = new Date().toString();
+		this.date = new Date();
 		this.email = UNKNOW_EMAIL;
 	}
 
@@ -74,11 +74,11 @@ public class Booking {
 		this.id = id;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

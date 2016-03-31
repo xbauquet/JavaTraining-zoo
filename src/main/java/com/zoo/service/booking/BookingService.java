@@ -16,6 +16,6 @@ public interface BookingService {
 	Collection<Booking> findAllBooking();
 
 	Booking getCurrentBooking();
-	
+
 	void setCurrentBooking(Booking booking);
 }

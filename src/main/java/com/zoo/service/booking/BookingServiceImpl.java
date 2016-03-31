@@ -65,5 +65,4 @@ public class BookingServiceImpl implements BookingService {
 		bookingHolder.setBooking(booking);
 
 	}
-
 }
