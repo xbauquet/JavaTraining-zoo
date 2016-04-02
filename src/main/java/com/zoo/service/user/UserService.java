@@ -1,7 +1,6 @@
 package com.zoo.service.user;
 
 import java.util.Collection;
-
 import com.zoo.model.User;
 
 public interface UserService {
@@ -16,11 +15,11 @@ public interface UserService {
 	Collection<User> findAllUser();
 
 	User createAdmin(String email, String firstName, String lastName, String pass);
-	
+
 	void disconnectCurrentUser();
 
 	User getCurrentUser();
-	
+
 	void setCurrentUser(User user);
-	
+
 }

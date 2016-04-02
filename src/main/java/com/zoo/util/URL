@@ -1,0 +1,13 @@
+Get a user with his email
+
+http://localhost:8080/zoo/rest/user/service/useratid/admin@admin.com
+
+Get current user
+
+http://localhost:8080/zoo/rest/user/service/currentuser
+
+
+http://localhost:8080/zoo/rest/user/service/userlist
+
+
+http://localhost:8080/zoo/rest/user/add/
