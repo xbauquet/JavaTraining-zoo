@@ -48,12 +48,12 @@ public interface UserWebService {
 	User findUserById(@PathParam("email") String email);
 
 	@GET
-	@Path("/userlist/")
+	@Path("/list/")
 	@Produces(MediaType.APPLICATION_JSON)
 	Collection<User> findAllUser();
 
 	@GET
-	@Path("/currentuser/")
+	@Path("/current/")
 	@Produces(MediaType.APPLICATION_JSON)
 	User getCurrentUser();
 
