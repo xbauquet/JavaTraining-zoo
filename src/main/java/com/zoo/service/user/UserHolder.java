@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 
 import com.zoo.model.User;
 
+@SuppressWarnings("serial")
 @ManagedBean
 @SessionScoped
 public class UserHolder implements Serializable {

@@ -17,6 +17,7 @@ public abstract class JpaDao<K, E> implements Dao<K, E> {
 
 	protected Class<E> entityClass;
 
+	@SuppressWarnings("unchecked")
 	public JpaDao() {
 		Class<?> genericSuperclass2 = getClass();
 		while(!ParameterizedType.class.isAssignableFrom(genericSuperclass2.getGenericSuperclass().getClass())) {

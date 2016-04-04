@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 
 import com.zoo.model.Booking;
 
+@SuppressWarnings("serial")
 @ManagedBean
 @SessionScoped
 public class BookingHolder implements Serializable {
