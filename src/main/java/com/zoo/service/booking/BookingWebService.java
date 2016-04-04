@@ -2,47 +2,71 @@ package com.zoo.service.booking;
 
 import java.util.Collection;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.zoo.model.Booking;
 
 @Path("/booking/")
-public interface BookingWebService {
+public class BookingWebService {
 
-	@GET
-	@Path("/delete/")
-	@Produces(MediaType.TEXT_PLAIN)
-	String deleteBooking(int id);
+	private static final String SUCCESS = "success";
+	@Inject
+	BookingService bookingService;
 
-	@GET
-	@Path("/bookingatid/id={id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	Booking findBookingById(@PathParam("id") int id);
-
-	@GET
-	@Path("/list/")
-	@Produces(MediaType.APPLICATION_JSON)
-	Collection<Booking> findAllBooking();
-
-	@GET
-	@Path("/current/")
-	@Produces(MediaType.APPLICATION_JSON)
-	Booking getCurrentBooking();
-	
 	@POST
-	@Path("/add/")
+	@Path("/delete")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
-	String addBooking(@FormParam("nbAdults") int nbAdults,
-			@FormParam("nbChildren") int nbChildren,
-			@FormParam("nbReduced") int nbReduced,
-			@FormParam("nbGroups") int nbGroups);
+	public String deleteBooking(@QueryParam("id") int id) {
+		bookingService.removeBooking(bookingService.findBookingById(id));
+		return SUCCESS;
+	}
+
+	@POST
+	@Path("/id")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Booking findBookingById(@QueryParam("id") int id) {
+		return bookingService.findBookingById(id);
+	}
+
+	@GET
+	@Path("/list")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Collection<Booking> findAllBooking() {
+		return bookingService.findAllBooking();
+	}
+
+	@GET
+	@Path("/getCurrent")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Booking getCurrentBooking() {
+		return bookingService.getCurrentBooking();
+	}
+
+	@POST
+	@Path("/setCurrent")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String setCurrentBooking(@QueryParam("nbAdults") int nbAdults, @QueryParam("nbChildren") int nbChildren,
+			@QueryParam("nbReduced") int nbReduced, @QueryParam("nbGroups") int nbGroups) {
+		bookingService.setCurrentBooking(bookingService.createBooking(nbAdults, nbChildren, nbReduced, nbGroups));
+		return SUCCESS;
+	}
+
+	@GET
+	@Path("/saveCurrent")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String saveCurrentBooking() {
+		bookingService.saveBooking(bookingService.getCurrentBooking());
+		return SUCCESS;
+	}
 
 }
